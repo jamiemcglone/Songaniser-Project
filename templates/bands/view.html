@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% block content %} 
+<h2> {{ band.band_name }}</h2>
+<section>
+<h4>Songs:</h4>
+{% for song in songs %}
+        <p>{{ song.title }} by {{ song.artist }}</p>
+{% endfor %}
+<h4>Setlists:</h4>
+{% for setlist in setlists %}
+        <p>{{ setlist.setlist_name }}</p>
+{% endfor %}   
+</section>
+{% endblock %}

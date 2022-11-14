@@ -1,5 +1,7 @@
 from db.run_sql import run_sql
 from models.band import Band
+from models.setlist import Setlist
+from models.song import Song
 from repositories import band_repository, song_repository, setlist_repository
 
 def save(band):
@@ -45,4 +47,40 @@ def update(band):
 #     sql = "UPDATE bands SET (song_catalogue) = (%s) WHERE id = %s"
 #     values = [song, band.id]
 #     run_sql(sql, values)
+
+def get_all_setlists(band):
+    setlists = []
+    sql = 'SELECT * FROM setlists WHERE band_id = %s'
+    values = [band.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        setlist_name = row['setlist_name']
+        band = band_repository.select(row['band_id'])
+        setlist = Setlist(setlist_name, band)
+        setlists.append(setlist)
+    return setlists
+
+def get_all_songs(band):
+    songs = []
+    sql = 'SELECT * FROM songs WHERE band_id = %s'
+    values = [band.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        song_title = row['title']
+        song_artist = row['artist']
+        song_duration = row['duration']
+        song_key = row['song_key']
+        song_structure = row['structure']
+        song_harmony = row['harmony']
+        song_learned = row['learned']
+        song_notes = row['notes']
+        band = band_repository.select(row['band_id'])
+        song = Song(song_title, song_artist, song_duration, song_key, song_structure, song_harmony, song_learned, song_notes, band)
+        songs.append(song)
+    return songs
+
+
+
 

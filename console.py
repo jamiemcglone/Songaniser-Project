@@ -36,15 +36,26 @@ setlist_song1 = Setlist_song(setlist1, song1)
 setlist_song_repository.save(setlist_song1)
 
 song2 = Song("Zombie",
-"The Cranberries",
-250,
-"E minor",
-"Intro, verse, chorus, verse, chorus, outro",
-"Em, Cmaj7, Gadd6, D/F#",
-False,
-"Just chords really", 
-band1)
+    "The Cranberries",
+    250,
+    "E minor",
+    "Intro, verse, chorus, verse, chorus, outro",
+    "Em, Cmaj7, Gadd6, D/F#",
+    False,
+    "Just chords really", 
+    band1)
 song_repository.save(song2)
+
+song3 = Song("Hotel Tropicana",
+    "Wham",
+    200,
+    "C major",
+    "Intro, verse, chorus, verse, chorus, bridge, chorus, outro",
+    "C, D",
+    False,
+    "Lots of percussion",
+    band2)
+song_repository.save(song3)
 
 setlist2 = Setlist("B Bar 20/08/22", band1)
 setlist_repository.save(setlist2)
