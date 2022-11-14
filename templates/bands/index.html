@@ -1,15 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends 'base.html' %}
+{% block content %} 
+<h2>Bands</h2>
 {% for band in bands %}
     <section>
         <h4>{{ band.band_name }}</h4>
-        <p>Setlists: {{ band.setlists.setlist_title }}</p><br>
-        <p>Songs to learn:</p><br>
-        {% for song in band.song_catalogue %}
-            {% if song.learned != True %}
-            <p> {{ song.title }} by {{ song.artist }}</p>
+        {% for setlist in setlists %}
+            {% if band.id == setlist.band.id %}
+                <p>Setlists: {{ setlist.setlist_name }}</p>
+                {% for song in setlist_songs %}
+                <p>Songs: {{ song.song.title }} by {{ song.song.artist }}</p>
+                {% endfor %}
             {% endif %}
-        {% endfor %}
+        {% endfor %} 
     </section>
 {% endfor %}
 {% endblock %}
+
+
+<!-- I need to figure out my for loop logic to print as I intend it to. -->

@@ -14,7 +14,7 @@ def select_all():
     sql = "SELECT * FROM bands"
     results = run_sql(sql)
     for result in results:
-        band = Band(result['band_name'], result['band_type'])
+        band = Band(result['band_name'], result['band_type'], result['id'])
         bands.append(band)
     return bands
 
@@ -22,9 +22,9 @@ def select(id):
     sql = "SELECT * FROM bands WHERE id=%s"
     values = [id]
     results = run_sql(sql, values)
-    for result in results:
+    if results:
         result = results[0]
-        band = Band(result['band_name'], result['band_type'])
+        band = Band(result['band_name'], result['band_type'], id)
     return band
 
 def delete_all():

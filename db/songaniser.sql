@@ -1,13 +1,12 @@
 DROP TABLE IF EXISTS bands CASCADE;
 DROP TABLE IF EXISTS songs CASCADE;
 DROP TABLE IF EXISTS setlists CASCADE;
+DROP TABLE IF EXISTS setlist_songs CASCADE;
 
 CREATE TABLE bands (
     id SERIAL PRIMARY KEY,
     band_name VARCHAR(255),
-    band_type VARCHAR(255),
-    song_catalogue VARCHAR(255),
-    setlists VARCHAR(255)
+    band_type VARCHAR(255)
 );
 
 CREATE TABLE songs (
@@ -26,9 +25,14 @@ CREATE TABLE songs (
 CREATE TABLE setlists (
     id SERIAL PRIMARY KEY,
     setlist_name VARCHAR(255),
-    band_id INT REFERENCES bands(id) ON DELETE CASCADE,
-    songs VARCHAR(255)
+    band_id INT REFERENCES bands(id) ON DELETE CASCADE
 );
+
+CREATE TABLE setlist_songs (
+    id SERIAL PRIMARY KEY,
+    setlist_id INT REFERENCES setlists(id) ON DELETE CASCADE,
+    song_id INT REFERENCES songs(id) ON DELETE CASCADE
+)
 
 -- INSERT INTO bands (band_name, band_type, song_catalogue, setlists)
 -- VALUES ('Juno', 'Function', '1, 2, 3, 5, 6, 7, 4', '1, 2, 4');

@@ -4,7 +4,5 @@ class Band:
 
         self.band_name = band_name
         self.band_type = band_type
-        self.song_catalogue = []
-        self.setlists = []
         self.id = id
         

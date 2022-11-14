@@ -1,9 +1,9 @@
 from db.run_sql import run_sql
 from models.song import Song
-from repositories import band_repository, song_repository, setlist_repository
+from repositories import band_repository
 
 
-def save(song, setlist=None):
+def save(song):
     sql = """INSERT INTO songs 
     (title, artist, duration, song_key, structure, harmony, learned, notes, band_id) 
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id"""
@@ -19,11 +19,6 @@ def save(song, setlist=None):
     results = run_sql(sql, values)
     id = results[0]['id']
     song.id = id
-    song.add_song_to_band(song.band)
-    band_repository.update(song.band)
-    if setlist:
-        song.add_song_to_setlist(setlist)
-        setlist_repository.update(setlist)
 
 
 def select_all():
@@ -32,20 +27,20 @@ def select_all():
     results = run_sql(sql)
     for result in results:
         band = band_repository.select(result['band_id'])
-        song = Song(result['title'], result['duration'], result['song_key'], 
+        song = Song(result['title'], result['artist'], result['duration'], result['song_key'], 
         result['structure'], result['harmony'], result['learned'], result['notes'], band, result['id'])
         songs.append(song)
     return songs
 
 def select(id):
-    sql = "SELECT FROM songs WHERE id= %s"
+    sql = "SELECT * FROM songs WHERE id= %s"
     values = [id]
     results = run_sql(sql, values)
 
     if results:
         result = results[0]
         band = band_repository.select(result['band_id'])
-        song = Song(result['title'], result['duration'], result['song_key'], 
+        song = Song(result['title'], result['artist'], result['duration'], result['song_key'], 
         result['structure'], result['harmony'], result['learned'], result['notes'], band, result['id'])
     return song
 
