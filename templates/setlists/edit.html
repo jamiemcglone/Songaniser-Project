@@ -6,7 +6,7 @@
 <form action="/setlists/ {{ setlist.id }}" method="POST">
     <div>
         <label for="setlist_name">Setlist Name:</label>
-        <input type="text" id="setlist_name" name="setlist_name">
+        <input type="text" id="setlist_name" name="setlist_name" value="{{ setlist.setlist_name }}">
     </div>
     <div>
         <label for="band">Band:</label>

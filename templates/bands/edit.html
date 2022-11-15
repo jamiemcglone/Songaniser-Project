@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update Band</h2>
+
+<form action="/bands/{{ band.id }}" method="POST">
+    <div>
+        <label for="band_name">Band Name:</label>
+        <input type="text" id="band_name" name="band_name" value="{{ band.band_name }}">
+    </div>
+    <div>
+        <label for="band_type">Band Type:</label>
+        <input type="text" id="band_type" name="band_type" value="{{ band.band_type }}">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

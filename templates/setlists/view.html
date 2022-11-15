@@ -4,8 +4,12 @@
 <section>
         <p>Band: {{ setlist.band.band_name }}</p>
         <h4>Songs:</h4>
+
         {% for song in setlist_songs %}
                 <a href="songs/ {{ song.id }}"><p>{{ song.title }} by {{ song.artist }}</p></a>
+                <form action="/setlists/{{setlist.id}}/songs/{{ song.id }}/delete" method="post">
+                        <input type="submit" value="Delete Song">
+                </form>
         {% endfor %}
         <br>
         <form action="/setlists/{{ setlist.id }}/edit">
@@ -16,3 +20,4 @@
         </form>
 </section>
 {% endblock %}
+"/setlists/songs/<id>/delete"

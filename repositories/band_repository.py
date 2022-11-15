@@ -39,8 +39,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(band):
-    sql = "UPDATE bands SET (band_name, band_type, song_catalogue, setlists) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [band.band_name, band.band_type, band.song_catalogue, band.setlists, band.id]
+    sql = "UPDATE bands SET (band_name, band_type) = (%s, %s) WHERE id = %s"
+    values = [band.band_name, band.band_type, band.id]
     run_sql(sql, values)
 
 # def update_songs_catalogue(song, band):
@@ -80,6 +80,7 @@ def get_all_songs(band):
         band = band_repository.select(row['band_id'])
         song = Song(song_title, song_artist, song_duration, song_key, song_structure, song_harmony, song_learned, song_notes, band, song_id)
         songs.append(song)
+        
     return songs
 
 

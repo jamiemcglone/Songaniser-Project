@@ -12,6 +12,9 @@
                 <p>{{ setlist.setlist_name }}</p>
         {% endfor %}   
         <br>
+        <form action="/bands/{{band.id}}/edit">
+                <input type="submit" value="Edit Band">
+        </form><br>
         <form action="/bands/{{ band.id }}/delete" method="POST">
                 <input type="submit" value="Delete Band">
         </form>

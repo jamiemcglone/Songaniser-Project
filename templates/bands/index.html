@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %} 
-<h2>All Bands</h2>
+<div>
+    <a href="/bands/new">Add New Band</a>
+    <h2>All Bands</h2>
+</div>
 <div>
 {% for band in bands %}
     <section>
@@ -19,7 +22,6 @@
         {% endfor %} -->
     </section>
 {% endfor %}
-<a href="/bands/new">Add New Band</a>
 </div>
 {% endblock %}
 

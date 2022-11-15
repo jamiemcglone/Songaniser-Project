@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Hi
+<div>
+<h2>Search for song by title: </h2>
+<form for="search" action="/search" method="POST">
+    <input type="text" id="search" name="search">
+    <input type="submit" value="Search">
+</form>
+</div>
+<div>
+    <h2>Songs to Learn:</h2><br>
+    {% for song in all_songs %}
+        {% if song.learned != 'true' %} 
+            <p> {{song.title}} by {{ song.artist}}</p><br>
+        {% endif %} 
+    {% endfor %}
+</div><br>
+<div>
+    <form action="/songs/new">
+    <button>Add New Song</button>
+    </form>
+</div>
 {% endblock %}

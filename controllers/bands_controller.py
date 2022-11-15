@@ -42,3 +42,16 @@ def delete_band(id):
 def song_view(id):
     song_to_view = song_repository.select(id)
     return render_template("songs/view.html", song=song_to_view)
+
+@bands_blueprint.route("/bands/<id>/edit")
+def edit_band(id):
+    band_to_edit = band_repository.select(id)
+    return render_template("/bands/edit.html", band=band_to_edit)
+
+@bands_blueprint.route("/bands/<id>", methods=["POST"])
+def update_band(id):
+    name = request.form['band_name']
+    type = request.form['band_type']
+    band = Band(name, type, id)
+    band_repository.update(band)
+    return redirect("/bands")

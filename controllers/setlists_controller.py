@@ -79,6 +79,14 @@ def update_setlist(id):
             setlist_song_repository.save(setlist_song)
     return redirect("/setlists")
 
+@setlists_blueprint.route("/setlists/<set_id>/songs/<song_id>/delete", methods=["POST"])
+def remove_song_from_set(set_id, song_id):
+    setlist_songs = setlist_song_repository.select_all()
+    for song in setlist_songs:
+        if song.song.id == int(song_id) and song.setlist.id == int(set_id):
+            setlist_song_repository.delete(song.id)
+    return redirect("/setlists")
+
 # # EDIT
 # @zombies_blueprint.route("/zombies/<id>/edit")
 # def edit_zombie(id):
