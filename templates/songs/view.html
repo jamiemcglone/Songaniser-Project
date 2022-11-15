@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <h3>{{ song.title }}</h3>
+</div>
+<div>
+    <p>
+        {% if song.learned == True %}
+            You have learned this song<br>
+        {% else %}
+            You have NOT learned this song<br><br>
+        {% endif %}
+        Artist: <br> 
+        {{ song.artist }}<br><br>
+        {% set length_in_mins = song.duration / 60 %}
+        Length: <br> 
+        {{'%0.2f' % length_in_mins|float }} minutes<br><br>
+        Key: <br>
+        {{ song.song_key }}<br><br>
+        Chord Pattern: <br>
+        {{ song.harmony }}<br><br>
+        Structure: <br>
+        {{ song.structure }}<br><br>
+        Notes: <br>
+        {{ song.notes }}<br><br>
+    </p>
+    <form action="/songs/{{ song.id }}/delete" method="POST">
+        <input type="submit" value="Delete Song">
+    </form>
+</div>
+{% endblock %}

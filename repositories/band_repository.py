@@ -76,8 +76,9 @@ def get_all_songs(band):
         song_harmony = row['harmony']
         song_learned = row['learned']
         song_notes = row['notes']
+        song_id = row['id']
         band = band_repository.select(row['band_id'])
-        song = Song(song_title, song_artist, song_duration, song_key, song_structure, song_harmony, song_learned, song_notes, band)
+        song = Song(song_title, song_artist, song_duration, song_key, song_structure, song_harmony, song_learned, song_notes, band, song_id)
         songs.append(song)
     return songs
 

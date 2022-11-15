@@ -1,4 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
+<div>
+<h3>
+    <a href="/songs/new">Add New Song</a>
+</h3>
+</div>
+<div>
+{% for song in songs %}
+    <h3>
+        {{ song.title }} by {{ song.artist }}
+        {% if song.learned == True %} 
+        <span>✅</span>
+    {% else %}
+        <span>❌</span>
+    {% endif %}
+    </h3>
+        <p>{{ song.band.band_name }}</p>
+        <a href="/songs/{{ song.id }}">View Song Details</a>
+        <!-- <p>{{ song.song_key }}</p>
+        <p>{{ song.harmony }}</p>
+        <p>{{ song.structure }}</p>
+        <p>{{ song.notes }}</p><br> -->
+{% endfor %}
+</div>
 
 {% endblock %}

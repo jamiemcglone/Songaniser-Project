@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add a New Song</h2>
+
+<form action="/songs" method="POST">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <br>
+    <div>
+        <label for="artist">Artist:</label>
+        <input name="artist" id="artist">
+    </div>
+    <br>
+    <div>
+        <label for="duration">Length in seconds:</label>
+        <input name="duration" id="duration">
+    </div>
+    <br>
+    <div>
+        <label for="key">Key:</label>
+        <input name="key" id="key">
+    </div>
+    <br>
+    <div>
+        <label for="structure">Structure:</label>
+        <input name="structure" id="structure">
+    </div>
+    <br>
+    <div>
+        <label for="harmony">Chord Pattern:</label>
+        <input name="harmony" id="harmony">
+    </div>
+    <br>
+    <div>
+        <label for="band">Band:</label>
+        <select name="band" id="band">
+        {% for band in bands %}
+            <option value="{{ band.id }}">
+                {{ band.band_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="notes">Notes:</label><br>
+        <textarea name="notes" id="notes" maxlength="255"></textarea>
+    </div>
+    <br>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

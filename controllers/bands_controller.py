@@ -25,8 +25,6 @@ def new_band():
     return render_template("bands/new.html")
 
 
-
-
 @bands_blueprint.route("/bands", methods=["POST"])
 def create_band():
     name = request.form["band_name"]
@@ -34,3 +32,13 @@ def create_band():
     new_band = Band(name, band_type)
     band_repository.save(new_band)
     return redirect("/bands")
+
+@bands_blueprint.route("/bands/<id>/delete", methods=['POST'])
+def delete_band(id):
+    band_repository.delete(id)
+    return redirect("/bands")
+
+@bands_blueprint.route("/bands/songs/<id>")
+def song_view(id):
+    song_to_view = song_repository.select(id)
+    return render_template("songs/view.html", song=song_to_view)

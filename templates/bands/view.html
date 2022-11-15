@@ -2,13 +2,18 @@
 {% block content %} 
 <h2> {{ band.band_name }}</h2>
 <section>
-<h4>Songs:</h4>
-{% for song in songs %}
-        <p>{{ song.title }} by {{ song.artist }}</p>
-{% endfor %}
-<h4>Setlists:</h4>
-{% for setlist in setlists %}
-        <p>{{ setlist.setlist_name }}</p>
-{% endfor %}   
+        <p>Band Type: {{ band.band_type }}</p>
+        <h4>Songs:</h4>
+        {% for song in songs %}
+                <a href="songs/ {{ song.id }}"><p>{{ song.title }} by {{ song.artist }}</p></a>
+        {% endfor %}
+        <h4>Setlists:</h4>
+        {% for setlist in setlists %}
+                <p>{{ setlist.setlist_name }}</p>
+        {% endfor %}   
+        <br>
+        <form action="/bands/{{ band.id }}/delete" method="POST">
+                <input type="submit" value="Delete Band">
+        </form>
 </section>
 {% endblock %}
