@@ -9,13 +9,16 @@
 {% for song in songs %}
     <h3>
         {{ song.title }} by {{ song.artist }}
-        {% if song.learned == True %} 
-        <span>✅</span>
-    {% else %}
-        <span>❌</span>
-    {% endif %}
+        {% if song.learned == 'true' %} 
+            <span>✅</span>
+        {% else %}
+            <span>❌</span>
+        {% endif %}
     </h3>
         <p>{{ song.band.band_name }}</p>
+        <form action="/songs/{{ song.id }}/learned" method="post">
+            <input type="submit" value="Update Learned Status" class="button">
+        </form><br>
         <a href="/songs/{{ song.id }}">View Song Details</a>
         <!-- <p>{{ song.song_key }}</p>
         <p>{{ song.harmony }}</p>

@@ -51,5 +51,5 @@ def update(setlist_song):
     sql = """UPDATE setlist_songs SET 
     (setlist_id, song_id) 
     = (%s, %s) WHERE id = %s"""
-    values = [setlist_song.setlist.id, setlist_song.song.id]
+    values = [setlist_song.setlist.id, setlist_song.song.id, setlist_song.id]
     run_sql(sql, values)

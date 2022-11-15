@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Add a New Setlist</h2>
+<h2>Update Setlist</h2>
 
-<form action="/setlists" method="POST">
+<form action="/setlists/ {{ setlist.id }}" method="POST">
     <div>
         <label for="setlist_name">Setlist Name:</label>
         <input type="text" id="setlist_name" name="setlist_name">
@@ -17,6 +17,13 @@
             </option>
             {% endfor %}
         </select>
+    </div>
+    <div>
+        Add songs: <br>
+        {% for song in songs %}
+        <input type="checkbox" name="songs" value="{{song.id}}">
+        <label for="{{song.id}}">{{song.title}} by {{song.artist}}</label><br>
+        {% endfor %}
     </div>
     <div>
         <input type="submit">

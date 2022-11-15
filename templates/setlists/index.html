@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+<h3>
+    <a href="/setlists/new">Add New Setlist</a>
+</h3>
+</div>
+<div>
+{% for setlist in setlists %}
+    <h3>
+        {{ setlist.setlist_name }}
+    </h3>
+        <p>{{ setlist.band.band_name }}</p>
+        <a href="/setlists/{{ setlist.id }}">View Set Details</a>
+{% endfor %}
+</div>
+
+{% endblock %}

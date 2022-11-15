@@ -1,3 +1,4 @@
+import json
 
 class Song:
 
@@ -15,3 +16,7 @@ class Song:
         self.notes = notes
         self.band = band
         self.id = id
+
+    def update_learned_status(self):
+        self.learned = json.loads(self.learned.lower())
+        self.learned = not self.learned
