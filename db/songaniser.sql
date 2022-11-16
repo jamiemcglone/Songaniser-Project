@@ -33,11 +33,3 @@ CREATE TABLE setlist_songs (
     setlist_id INT REFERENCES setlists(id) ON DELETE CASCADE,
     song_id INT REFERENCES songs(id) ON DELETE CASCADE
 )
-
--- INSERT INTO bands (band_name, band_type, song_catalogue, setlists)
--- VALUES ('Juno', 'Function', '1, 2, 3, 5, 6, 7, 4', '1, 2, 4');
-
--- INSERT INTO songs (title, artist, duration, song_key, structure, harmony, learned, notes, band_id)
--- VALUES ('Dreams', 'Fleetwood Mac', 200, 'A minor', 'Intro, verse, chorus, solo, verse, chorus, outro',
--- 'F, G', 'False', 'Lots of melody parts', 1);
-

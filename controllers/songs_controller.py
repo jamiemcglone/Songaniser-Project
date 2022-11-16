@@ -1,8 +1,6 @@
-from flask import Blueprint, Flask, redirect, render_template, request
-from repositories import band_repository, setlist_repository, setlist_song_repository, song_repository
+from flask import Blueprint, redirect, render_template, request
+from repositories import band_repository, song_repository
 from models.song import Song
-from models.band import Band
-import json
 
 songs_blueprint = Blueprint("songs", __name__)
 

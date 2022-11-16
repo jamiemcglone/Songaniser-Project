@@ -2,7 +2,7 @@ from db.run_sql import run_sql
 from models.band import Band
 from models.setlist import Setlist
 from models.song import Song
-from repositories import band_repository, song_repository, setlist_repository
+from repositories import band_repository
 
 def save(band):
     sql = "INSERT INTO bands (band_name, band_type) VALUES (%s, %s) RETURNING id"
@@ -42,11 +42,6 @@ def update(band):
     sql = "UPDATE bands SET (band_name, band_type) = (%s, %s) WHERE id = %s"
     values = [band.band_name, band.band_type, band.id]
     run_sql(sql, values)
-
-# def update_songs_catalogue(song, band):
-#     sql = "UPDATE bands SET (song_catalogue) = (%s) WHERE id = %s"
-#     values = [song, band.id]
-#     run_sql(sql, values)
 
 def get_all_setlists(band):
     setlists = []

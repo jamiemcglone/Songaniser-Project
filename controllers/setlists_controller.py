@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask, redirect, render_template, request
+from flask import Blueprint, redirect, render_template, request
 from repositories import setlist_repository, song_repository, band_repository, setlist_song_repository
 from models.setlist import Setlist
 from models.setlist_song import Setlist_song
