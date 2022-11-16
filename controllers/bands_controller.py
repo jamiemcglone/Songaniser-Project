@@ -61,3 +61,8 @@ def update_band(id):
     band = Band(name, type, id)
     band_repository.update(band)
     return redirect("/bands")
+
+@bands_blueprint.route("/bands/setlists/songs/<id>")
+def view_song_from_band_setlist(id):
+    song_to_view = song_repository.select(id)
+    return render_template("songs/view.html", song=song_to_view)
