@@ -16,8 +16,8 @@
     color: black
 }
 
-.menu > li > a:hover{
-    
+a:hover{
+    background-color: rgb(244, 235, 235);
 }
 
 header {
@@ -312,8 +312,10 @@ body {
     color: black;
     margin-top: 10px;
     margin-bottom: 30px;
-
+    margin: auto;
+    flex-wrap: wrap;
 }
+
 
 #song_view_page {
     text-align: center;
@@ -502,3 +504,13 @@ body {
 #not_learned_warning {
     text-decoration: underline;
 }
+
+@media (max-width: 500px) {
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        margin-bottom: 10px;
+        flex-direction: column;
+    }
+  }
