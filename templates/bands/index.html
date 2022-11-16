@@ -1,27 +1,21 @@
 {% extends 'base.html' %}
 {% block content %} 
-<div>
-    <a href="/bands/new">Add New Band</a>
+<div id="all_bands_title">
     <h2>All Bands</h2>
+    <i class="fa-solid fa-people-group"></i>
 </div>
-<div>
+<div class="band_container">
 {% for band in bands %}
-    <section>
+    <section class="band_list">
         <a href="/bands/ {{ band.id }}"><h3>{{ band.band_name }}</h3></a>
-        <!-- <h4>Setlists:</h4>
-        {% for setlist in setlists %}
-            {% if band.id == setlist.band.id %}
-                <p>{{ setlist.setlist_name }}</p>
-            {% endif %}
-        {% endfor %} 
-        <h4>Songs:</h4>
-        {% for song in songs %}
-            {% if song.band.id == band.id %}
-                <p>{{ song.title }} by {{ song.artist }}</p>
-            {% endif %}
-        {% endfor %} -->
     </section>
 {% endfor %}
+</div>
+
+<div id="add_new_band">
+    <form action="/bands/new">
+    <button id="add_new_band_button">Add New Band</button>
+    </form>
 </div>
 {% endblock %}
 

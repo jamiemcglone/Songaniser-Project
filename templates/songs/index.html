@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-    <a href="/songs/new">Add New Song</a>
+<div id="all_songs_title">
+    <h3>All Songs</h3>
+    <i class="fa-solid fa-guitar" id="guitar_song_page"></i>
 </div>
-<div>
+<div class="songs_container">
 {% for song in songs %}
+    <div class="individual_song_container">
     <h3>
         {{ song.title }} by {{ song.artist }}
         {% if song.learned == 'true' %} 
@@ -15,14 +17,17 @@
     </h3>
         <p>{{ song.band.band_name }}</p>
         <form action="/songs/{{ song.id }}/learned" method="post">
-            <input type="submit" value="Update Learned Status" class="button">
+            <button id="add_new_song_button">Update Learned Status</button>
         </form><br>
         <a href="/songs/{{ song.id }}">View Song Details</a>
-        <!-- <p>{{ song.song_key }}</p>
-        <p>{{ song.harmony }}</p>
-        <p>{{ song.structure }}</p>
-        <p>{{ song.notes }}</p><br> -->
+    </div>
 {% endfor %}
+
+</div>
+<div id="add_new_song">
+    <form action="/songs/new">
+    <button id="add_new_song_button">Add New Song</button>
+    </form>
 </div>
 
 {% endblock %}

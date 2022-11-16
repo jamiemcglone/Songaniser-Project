@@ -13,7 +13,7 @@ def save(band):
 
 def select_all():
     bands = []
-    sql = "SELECT * FROM bands"
+    sql = "SELECT * FROM bands ORDER BY band_name"
     results = run_sql(sql)
     for result in results:
         band = Band(result['band_name'], result['band_type'], result['id'])
@@ -57,7 +57,7 @@ def get_all_setlists(band):
     for row in results:
         setlist_name = row['setlist_name']
         band = band_repository.select(row['band_id'])
-        setlist = Setlist(setlist_name, band)
+        setlist = Setlist(setlist_name, band, row['id'])
         setlists.append(setlist)
     return setlists
 

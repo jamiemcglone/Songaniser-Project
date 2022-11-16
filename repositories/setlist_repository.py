@@ -12,7 +12,7 @@ def save(setlist):
     
 def select_all():
     setlists = []
-    sql = "SELECT * FROM setlists"
+    sql = "SELECT * FROM setlists ORDER BY setlist_name"
     results = run_sql(sql)
     for result in results:
         band = band_repository.select(result['band_id'])
@@ -28,8 +28,6 @@ def select(id):
     results = run_sql(sql, values)
     if results:
         result = results[0]
-        print('This is the result:')
-        print(result)
         band = band_repository.select(result['band_id'])
         setlist = Setlist(result['setlist_name'], band, result['id'])
     return setlist

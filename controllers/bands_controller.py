@@ -43,6 +43,12 @@ def song_view(id):
     song_to_view = song_repository.select(id)
     return render_template("songs/view.html", song=song_to_view)
 
+@bands_blueprint.route("/bands/setlists/<id>")
+def set_view(id):
+    setlist_to_view = setlist_repository.select(id)
+    setlist_songs = setlist_repository.get_songs_in_set(setlist_to_view)
+    return render_template("setlists/view.html", setlist=setlist_to_view, setlist_songs=setlist_songs)
+
 @bands_blueprint.route("/bands/<id>/edit")
 def edit_band(id):
     band_to_edit = band_repository.select(id)

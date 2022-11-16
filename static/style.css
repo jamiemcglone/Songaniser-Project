@@ -1,0 +1,251 @@
+.menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+
+.menu > li {
+    list-style: none;
+    font-size: 2rem;
+}
+
+.menu > li > a {
+    text-decoration: none;
+    color: black
+}
+
+.menu > li > a:hover{
+    
+}
+
+header {
+    margin-bottom: 0px;
+    border-style: solid;
+    border-radius: 25px;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(237, 248, 255);
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: monospace;
+    font-size: large;
+}
+
+.search_bar > form > input {
+    width: 50%;
+    padding: 12px 10px;
+    border-color: rgb(17, 17, 17);
+    border-radius: 5px;
+    box-shadow: 0 0 1px rgb(17, 17, 17);
+    margin-top: 10px;
+}
+
+
+#base_music_note {
+    font-size: 2rem;
+}
+
+#guitar {
+    font-size: 2rem;
+}
+
+
+.songs_to_learn {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+
+.songs_to_learn > a {
+    text-decoration: none;
+    color: black
+}
+
+.song-card{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.song-card > a {
+    text-decoration: none;
+}
+
+#songs_to_learn_title {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#song_search {
+    font-size: 2rem;
+}
+
+#add_new_song {
+    text-align: center;
+}
+
+#add_new_song_button {
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.band_container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.band_list {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    color: black;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    width: 200px;
+    text-align: center;
+
+}
+
+.band_list > a {
+    text-decoration: none;
+    color: black;
+}
+
+#all_bands_title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#add_new_band {
+    text-align: center;
+}
+
+#add_new_band_button {
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.band_songs {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+
+.band_song {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.band_sets {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+
+.band_set {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.band_page {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.band_song > a {
+    text-decoration: none;
+    color: black;
+}
+
+.band_set > a {
+    text-decoration: none;
+    color: black;
+}
+
+#edit_band {
+    text-align: center;
+}
+
+#edit_band_button {
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#delete_band {
+    text-align: center;
+}
+
+#delete_band_button {
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#all_songs_title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.songs_container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+    text-align: center;
+}
+
+.individual_song_container {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.individual_song_container > a {
+    text-decoration: none;
+    color: black;
+}

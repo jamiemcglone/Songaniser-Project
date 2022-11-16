@@ -23,7 +23,7 @@ def save(song):
 
 def select_all():
     songs = []
-    sql = "SELECT * FROM songs"
+    sql = "SELECT * FROM songs ORDER BY title"
     results = run_sql(sql)
     for result in results:
         band = band_repository.select(result['band_id'])

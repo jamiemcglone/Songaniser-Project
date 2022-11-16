@@ -1,24 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-<h2>Search for song by title: </h2>
+<h2 id="search_title">Search for song by title</h2>
+<div class="search_bar">
 <form for="search" action="/search" method="POST">
-    <input type="text" id="search" name="search">
+    <input type="text" id="search" name="search" class="search" required>
+    <br><br>
     <input type="submit" value="Search">
 </form>
 </div>
-<div>
-    <h2>Songs to Learn:</h2><br>
+<br>
+<hr color="black" size="1">
+<div id="songs_to_learn_title">
+    <h2>Songs to Learn</h2> 
+    <i class="fa-solid fa-guitar" id="guitar"></i>
+</div>
+
+<div class="songs_to_learn">
     {% for song in all_songs %}
         {% if song.learned != 'true' %} 
-            <p> {{song.title}} by {{ song.artist}}</p><br>
+        <a href="songs/ {{ song.id }}"><div class="song-card">{{song.title}} by {{ song.artist}}</div></a>
         {% endif %} 
     {% endfor %}
-</div><br>
-<div>
+</div>
+<br />
+<div id="add_new_song">
     <form action="/songs/new">
-    <button>Add New Song</button>
+    <button id="add_new_song_button">Add New Song</button>
     </form>
 </div>
 {% endblock %}
