@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-
+<main class="edit_add_setlist">
 <h2>Update Setlist</h2>
 
+<div class="edit_add_setlist_container">
 <form action="/setlists/ {{ setlist.id }}" method="POST">
-    <div>
+    <div class="edit_add_setlist_item">
         <label for="setlist_name">Setlist Name:</label>
         <input type="text" id="setlist_name" name="setlist_name" value="{{ setlist.setlist_name }}">
     </div>
-    <div>
+    <div class="edit_add_setlist_item">
         <label for="band">Band:</label>
         <select name="band" id="band">
         {% for band in bands %}
@@ -18,16 +19,21 @@
             {% endfor %}
         </select>
     </div>
-    <div>
+    <div class="edit_add_setlist_item">
+    <div class="add_songs_to_set_container">
         Add songs: <br>
         {% for song in songs %}
+        <div class="add_songs_to_set_item">
         <input type="checkbox" name="songs" value="{{song.id}}">
-        <label for="{{song.id}}">{{song.title}} by {{song.artist}}</label><br>
+        <label for="{{song.id}}">{{song.title}} by {{song.artist}}</label>
+        </div>
         {% endfor %}
     </div>
-    <div>
-        <input type="submit">
     </div>
+    <div class="edit_add_setlists_buttons">
+        <input id="edit_setlist_button" type="submit">
+    </div>
+</div>
 </form>
-
+</main>
 {% endblock %}

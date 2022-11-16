@@ -29,8 +29,8 @@ header {
 
 body {
     background-color: rgb(237, 248, 255);
-    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-    font-family: monospace;
+    /* font-family: monospace; */
+    font-family: 'futura';
     font-size: large;
 }
 
@@ -248,4 +248,257 @@ body {
 .individual_song_container > a {
     text-decoration: none;
     color: black;
+}
+
+.setlists_container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+
+.individual_set_container {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.individual_set_container > a {
+    text-decoration: none;
+    color: black;
+}
+
+#all_setlists_title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#add_new_set {
+    text-align: center;
+}
+
+#add_new_set_button {
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.song_container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+
+.song_cards {
+    padding: 10px;
+    font-size: 1.3rem;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+}
+
+#song_view_page {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#song_view_buttons {
+    text-align: center;
+
+}
+
+#edit_song_button {
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+#delete_song_button {
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.song_edit_add_page {
+    text-align: center;
+}
+
+.add_edit_song_container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+
+.add_edit_song_item {
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.edit_add_setlist {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.edit_add_setlist_container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+
+.edit_add_setlist_item {
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.add_songs_to_set_container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+
+.add_songs_to_set_item {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.setlist_view {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.setlist_view_container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+
+.setlist_view_item {
+    padding: 10px;
+    font-size: 2rem;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.setlist_songs_container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-content: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+
+.setlist_songs_item {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin: 10px;
+}
+
+.setlist_songs_item > a {
+    text-decoration: none;
+    color: black;
+}
+
+.set_view_buttons {
+    text-align: center;
+}
+
+#set_view_song_button {
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+#set_view_edit_button {
+    border-radius: 5px;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+#set_view_delete_button {
+    border-radius: 5px;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+.edit_add_setlists_buttons {
+    text-align: center;
+}
+
+#add_setlist_button {
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+#edit_setlist_button {
+    border-radius: 5px;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+#not_learned_warning {
+    text-decoration: underline;
 }

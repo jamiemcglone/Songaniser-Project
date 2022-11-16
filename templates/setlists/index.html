@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-    <a href="/setlists/new">Add New Setlist</a>
-<h2>All Setlists</h2>
+<div id="all_setlists_title">
+    <h2>All Setlists</h2>
+    <i class="fa-solid fa-list"></i>
 </div>
-<div>
+<div class="setlists_container">
 {% for setlist in setlists %}
+    <div class="individual_set_container">
     <h3>
         {{ setlist.setlist_name }}
     </h3>
         <p>{{ setlist.band.band_name }}</p>
         <a href="/setlists/{{ setlist.id }}">View Set Details</a>
+    </div>
 {% endfor %}
+</div>
+<div id="add_new_set">
+    <form action="/setlists/new">
+    <button id="add_new_set_button">Add New Setlist</button>
+    </form>
 </div>
 
 {% endblock %}

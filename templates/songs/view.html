@@ -1,36 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
+<main id="song_view_page">
+<div id="song_view_title">
     <h3>{{ song.title }}</h3>
 </div>
-<div>
-    <p>
+<div class="song_container">
+    <p class="song_cards">
         {% if song.learned == 'true' %}
             You have learned this song<br>
         {% else %}
-            You have NOT learned this song<br><br>
+            You have <span id ="not_learned_warning" style="color:red">NOT</span> learned this song<br>
         {% endif %}
+    </p>
+    <p class="song_cards">
         Artist: <br> 
-        {{ song.artist }}<br><br>
+        {{ song.artist }}
+    </p>
+    <p class="song_cards">
         {% set length_in_mins = song.duration / 60 %}
         Length: <br> 
-        {{'%0.2f' % length_in_mins|float }} minutes<br><br>
-        Key: <br>
-        {{ song.song_key }}<br><br>
-        Chord Pattern: <br>
-        {{ song.harmony }}<br><br>
-        Structure: <br>
-        {{ song.structure }}<br><br>
-        Notes: <br>
-        {{ song.notes }}<br><br>
+        {{'%0.2f' % length_in_mins|float }} minutes
     </p>
-    <div>
-    </div><br>
+    <p class="song_cards">
+        Key: <br>
+        {{ song.song_key }}
+    </p>
+    <p class="song_cards">
+        Chord Pattern: <br>
+        {{ song.harmony }}
+    </p>
+    <p class="song_cards">
+        Structure: <br>
+        {{ song.structure }}
+    </p>
+    <p class="song_cards">
+        Notes: <br>
+        {{ song.notes }}
+    </p>
+</div>
+<div id="song_view_buttons">
     <form action="/songs/{{ song.id }}/edit">
-        <input type="submit" value="Edit Song Details">
-    </form><br>
+        <button id="edit_song_button">Edit Song Details</button>
+    </form>
     <form action="/songs/{{ song.id }}/delete" method="POST">
-        <input type="submit" value="Delete Song">
+        <button id="delete_song_button">Delete Song</button>
     </form>
 </div>
+</main>
 {% endblock %}

@@ -1,23 +1,35 @@
 {% extends 'base.html' %} 
-{% block content %} 
+{% block content %}
+<main class="setlist_view">
 <h2> {{ setlist.setlist_name }}</h2>
-<section>
-        <p>Band: {{ setlist.band.band_name }}</p>
-        <h4>Songs:</h4>
-
-        {% for song in setlist_songs %}
-                <a href="songs/ {{ song.id }}"><p>{{ song.title }} by {{ song.artist }}</p></a>
-                <form action="/setlists/{{setlist.id}}/songs/{{ song.id }}/delete" method="post">
-                        <input type="submit" value="Delete Song">
+<div class="setlist_view_container">
+        <div class="setlist_view_item">
+                <h3>{{ setlist.band.band_name }}</h3>
+        </div>
+        <div class="setlist_view_item">
+        <h4>Songs</h4>
+                <div class="setlist_songs_container">
+                        {% for song in setlist_songs %}
+                        <div class="setlist_songs_item">
+                                <a href="songs/ {{ song.id }}"><p>{{ song.title }} by {{ song.artist }}</p></a>
+                                <div class="set_view_buttons">
+                                <form action="/setlists/{{setlist.id}}/songs/{{ song.id }}/delete" method="post">
+                                <input id="set_view_song_button" type="submit" value="Delete Song">
+                                </form>
+                                </div>
+                        </div>
+                        {% endfor %}
+                </div>
+        </div>
+        <div class="set_view_buttons">
+                <form action="/setlists/{{ setlist.id }}/edit">
+                        <input id="set_view_edit_button" type="submit" value="Update Setlist">
                 </form>
-        {% endfor %}
-        <br>
-        <form action="/setlists/{{ setlist.id }}/edit">
-            <input type="submit" value="Update Setlist">
-        </form><br>
-        <form action="/setlists/{{ setlist.id }}/delete" method="POST">
-                <input type="submit" value="Delete Setlist">
-        </form>
-</section>
+                <form action="/setlists/{{ setlist.id }}/delete" method="POST">
+                        <input id="set_view_delete_button" type="submit" value="Delete Setlist">
+                </form>
+        </div>
+</div>
+</main>
 {% endblock %}
 "/setlists/songs/<id>/delete"

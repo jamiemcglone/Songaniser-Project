@@ -71,13 +71,14 @@ def update_setlist(id):
     for song_id in songs_to_add:
         song_object = song_repository.select(song_id)
         setlist_song = Setlist_song(setlist, song_object)
-        # import pdb
-        # pdb.set_trace()
         if song_object in songs_in_set:
             continue
         else:
             setlist_song_repository.save(setlist_song)
-    return redirect("/setlists")
+            
+    setlist_to_view = setlist_repository.select(id)
+    setlist_songs = setlist_repository.get_songs_in_set(setlist_to_view)
+    return render_template("setlists/view.html", setlist=setlist_to_view, setlist_songs=setlist_songs)
 
 @setlists_blueprint.route("/setlists/<set_id>/songs/<song_id>/delete", methods=["POST"])
 def remove_song_from_set(set_id, song_id):
@@ -85,22 +86,6 @@ def remove_song_from_set(set_id, song_id):
     for song in setlist_songs:
         if song.song.id == int(song_id) and song.setlist.id == int(set_id):
             setlist_song_repository.delete(song.id)
-    return redirect("/setlists")
-
-# # EDIT
-# @zombies_blueprint.route("/zombies/<id>/edit")
-# def edit_zombie(id):
-#     zombie = zombie_repository.select(id)
-#     zombie_types = zombie_type_repository.select_all()
-#     return render_template('zombies/edit.html', zombie=zombie, zombie_types=zombie_types)
-
-
-# # UPDATE
-# @zombies_blueprint.route("/zombies/<id>", methods=["POST"])
-# def update_zombie(id):
-#     name = request.form["name"]
-#     zombie_type_id = request.form["zombie_type_id"]
-#     zombie_type = zombie_type_repository.select(zombie_type_id)
-#     zombie = Zombie(name, zombie_type, id)
-#     zombie_repository.update(zombie)
-#     return redirect("/zombies")
+    setlist_to_view = setlist_repository.select(set_id)
+    setlist_songs = setlist_repository.get_songs_in_set(setlist_to_view)
+    return render_template("setlists/view.html", setlist=setlist_to_view, setlist_songs=setlist_songs)

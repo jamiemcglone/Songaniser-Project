@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+<main class="edit_add_setlist">
 <h2>Add a New Setlist</h2>
 
+<div class="edit_add_setlist_container">
 <form action="/setlists" method="POST">
-    <div>
+    <div class="edit_add_setlist_item">
         <label for="setlist_name">Setlist Name:</label>
         <input type="text" id="setlist_name" name="setlist_name">
     </div>
-    <div>
+    <div class="edit_add_setlist_item">
         <label for="band">Band:</label>
         <select name="band" id="band">
         {% for band in bands %}
@@ -18,9 +20,11 @@
             {% endfor %}
         </select>
     </div>
-    <div>
-        <input type="submit">
+    <div class="edit_add_setlists_buttons">
+        <input id="add_setlist_button" type="submit">
     </div>
+</div>
 </form>
+</main>
 
 {% endblock %}
