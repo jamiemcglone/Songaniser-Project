@@ -2,16 +2,16 @@ Songaniser is a full stack Python application built using the flask framework, t
 
 Technologies used during this project:
 
-Python
-Flask
-Git
-Postico
-Jinja
-Psycopg2
-SQL
-HTML
-CSS
-TDD
+* Python
+* Flask
+* Git
+* Postico
+* Jinja
+* Psycopg2
+* SQL
+* HTML
+* CSS
+* TDD
 
 ![plot](./Songaniser%20Home%20Page.png)
 
