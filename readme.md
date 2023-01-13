@@ -13,7 +13,8 @@ HTML
 CSS
 TDD
 
-![plot](./../../../pda_work/project%20information/App%20Home%20Page.png)
+![plot](./Songaniser%20Home%20Page.png)
+
 
 The intent of this application was to allow me to better organise the songs I need to learn for the band I am in, we gig regularly and often learn new songs but keeping on top of this can be challenging, as there is no easy way to keep track of each song. 
 
